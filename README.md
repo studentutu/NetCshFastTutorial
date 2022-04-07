@@ -1,4 +1,5 @@
-# NetCshFastTutorial
+# .Net C# Fast Tutorial
+
 Hopefully fast tutorial for .Net (C#) beginners with no pre-requisites
 
 ## Summary
