@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestApiOnCore", "RestApiOnCore\RestApiOnCore.csproj", "{97F563D7-D90E-483D-8D57-E3744D46D001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestApiOnCore.Unit.Tests", "RestApiOnCore.Unit.Tests\RestApiOnCore.Unit.Tests.csproj", "{AFF2CD52-A5A0-4FBA-A3BC-E174DDEEBEA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestApiOnCore.Integration.Tests", "RestApiOnCore.Integration.Tests\RestApiOnCore.Integration.Tests.csproj", "{D13D57C5-F4C3-4702-BA4D-CBEDBAD9ECD8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97F563D7-D90E-483D-8D57-E3744D46D001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97F563D7-D90E-483D-8D57-E3744D46D001}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97F563D7-D90E-483D-8D57-E3744D46D001}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97F563D7-D90E-483D-8D57-E3744D46D001}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFF2CD52-A5A0-4FBA-A3BC-E174DDEEBEA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFF2CD52-A5A0-4FBA-A3BC-E174DDEEBEA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFF2CD52-A5A0-4FBA-A3BC-E174DDEEBEA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFF2CD52-A5A0-4FBA-A3BC-E174DDEEBEA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D13D57C5-F4C3-4702-BA4D-CBEDBAD9ECD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D13D57C5-F4C3-4702-BA4D-CBEDBAD9ECD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D13D57C5-F4C3-4702-BA4D-CBEDBAD9ECD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D13D57C5-F4C3-4702-BA4D-CBEDBAD9ECD8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
