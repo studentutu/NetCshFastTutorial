@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using RestApiOnCore.Repository.Dto;
+using RestApiOnCore.Dto;
+using RestApiOnCore.Repository.Instrastucture;
 
 namespace RestApiOnCore.Controllers;
 
@@ -7,16 +8,14 @@ namespace RestApiOnCore.Controllers;
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
 {
-	private static readonly string[] Summaries = new[]
-	{
-		"Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-	};
-
 	private readonly ILogger<WeatherForecastController> _logger;
+	private readonly IDbRepository _dbRepository;
 
-	public WeatherForecastController(ILogger<WeatherForecastController> logger)
+	public WeatherForecastController(ILogger<WeatherForecastController> logger,
+		IDbRepository dbRepository)
 	{
 		_logger = logger;
+		_dbRepository = dbRepository;
 	}
 
 	[HttpGet(Name = "GetWeatherForecast")]
@@ -24,12 +23,6 @@ public class WeatherForecastController : ControllerBase
 	{
 		await Task.Delay(3000);
 
-		return Enumerable.Range(1, 5).Select(index => new WeatherForecastDto
-			{
-				Date = DateTime.Now.AddDays(index),
-				TemperatureC = Random.Shared.Next(-20, 55),
-				Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-			})
-			.ToArray();
+		return await _dbRepository.GetWeather("*");
 	}
 }

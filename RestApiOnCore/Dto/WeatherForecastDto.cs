@@ -1,7 +1,8 @@
-namespace RestApiOnCore.Repository.Dto;
+namespace RestApiOnCore.Dto;
 
 public class WeatherForecastDto
 {
+	public string Place { get; set; }
 	public DateTime Date { get; set; }
 
 	public int TemperatureC { get; set; }

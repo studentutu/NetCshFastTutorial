@@ -1,4 +1,4 @@
-using MediatR;
+using RestApiOnCore.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,8 +9,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//Mediatr
-builder.Services.AddMediatR(typeof(Program).Assembly);
+
+// Add Services
+var customServices = new ServicesInstaller(builder.Services);
+customServices.AddServices();
 
 var app = builder.Build();
 
@@ -30,5 +32,11 @@ app.MapControllers();
 
 app.Run();
 
+
 // Make the implicit Program class public so test projects can access it
-public partial class Program { }
+public partial class Program
+{
+	public class ResAPIOnCore
+	{
+	}
+}
