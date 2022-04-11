@@ -31,7 +31,7 @@ public class ServicesInstaller
 		_serviceCollection.AddSingleton<IDbRepository>(new DictionaryDbRepository());
 
 		FirebaseSettings.Initialize(_hostingEnvironment);
-		_serviceCollection.AddSingleton(_ => new FirestoreDbContext(
+		_serviceCollection.AddSingleton<FirestoreDbContext>(_ => new FirestoreDbContext(
 			new FirestoreDbBuilder
 			{
 				ProjectId = SetupEnvironments.FireStore_Project_Id,

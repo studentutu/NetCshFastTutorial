@@ -1,4 +1,4 @@
-﻿namespace RestApiOnCore.Dto;
+﻿namespace RestApiOnCore.Dto.Api;
 
 public class ApiResultDto
 {

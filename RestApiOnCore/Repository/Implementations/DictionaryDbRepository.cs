@@ -1,4 +1,5 @@
 ﻿using RestApiOnCore.Dto;
+using RestApiOnCore.Dto.Api;
 using RestApiOnCore.Repository.Instrastucture;
 
 namespace RestApiOnCore.Repository.Implementations;
@@ -21,6 +22,7 @@ public class DictionaryDbRepository : IDbRepository
 	{
 		var list = Enumerable.Range(1, 5).Select(index => new WeatherForecastDto
 		{
+			Guid = Guid.NewGuid().ToString(),
 			Place = Places[Random.Shared.Next(Places.Length)],
 			Date = DateTime.Now.AddDays(index),
 			TemperatureC = Random.Shared.Next(-20, 55),
@@ -28,8 +30,8 @@ public class DictionaryDbRepository : IDbRepository
 		});
 		foreach (var item in list)
 		{
-			EnsureExists(item.Place);
-			_dictionary[item.Place].Add(item);
+			EnsureExists(item.Guid);
+			_dictionary[item.Guid].Add(item);
 		}
 	}
 
@@ -72,10 +74,10 @@ public class DictionaryDbRepository : IDbRepository
 	public Task<bool> UpdateWeather(string query, IEnumerable<WeatherForecastDto> listToUpdate)
 	{
 		EnsureExists(query);
-		var toDict = _dictionary[query].ToDictionary(x => x.Place);
+		var toDict = _dictionary[query].ToDictionary(x => x.Guid);
 		foreach (var weatherItem in listToUpdate)
 		{
-			toDict[weatherItem.Place] = weatherItem;
+			toDict[weatherItem.Guid] = weatherItem;
 		}
 
 		_dictionary[query].Clear();

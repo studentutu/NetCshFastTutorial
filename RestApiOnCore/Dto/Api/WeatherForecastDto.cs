@@ -1,7 +1,8 @@
-namespace RestApiOnCore.Dto;
+namespace RestApiOnCore.Dto.Api;
 
 public class WeatherForecastDto
 {
+	public string Guid { get; set; }
 	public string Place { get; set; }
 	public DateTime Date { get; set; }
 

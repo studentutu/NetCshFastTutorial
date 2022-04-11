@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using RestApiOnCore.Dto;
+using RestApiOnCore.Dto.Api;
 using RestApiOnCore.Repository.Instrastucture;
 using RestApiOnCore.Services.Instrastucture;
 
@@ -58,7 +59,7 @@ public class WeatherForecastController : ControllerBase
 		await Task.Delay(500);
 		newWeatherDto.Date = _dateTimeService.GetDateTimeNow();
 		var result =
-			await _dbRepository.PutWeather(newWeatherDto.Place, new List<WeatherForecastDto>() {newWeatherDto});
+			await _dbRepository.PutWeather(newWeatherDto.Guid, new List<WeatherForecastDto>() {newWeatherDto});
 		if (result)
 		{
 			return Ok(newWeatherDto);
