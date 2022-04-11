@@ -9,6 +9,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Add files in there
+builder.WebHost.UseWebRoot("wwwroot");
+
 
 // Add Services
 var customServices = new ServicesInstaller(builder.Services);

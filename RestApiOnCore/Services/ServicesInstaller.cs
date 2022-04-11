@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using Google.Cloud.Firestore;
+using MediatR;
+using RestApiOnCore.Configuration;
 using RestApiOnCore.Repository.Implementations;
 using RestApiOnCore.Repository.Instrastucture;
 using RestApiOnCore.Services.Implementations;
@@ -23,5 +25,16 @@ public class ServicesInstaller
 		_serviceCollection.AddSingleton<IDateTimeService>(new DateTimeService());
 
 		_serviceCollection.AddSingleton<IDbRepository>(new DictionaryDbRepository());
+		
+		
+		_serviceCollection.AddSingleton(_ => new FirestoreDbContext(
+			new FirestoreDbBuilder 
+			{ 
+				ProjectId = SetupEnvironments.FireStore_Project_Id, 
+				JsonCredentials = SetupEnvironments.GetGoogleFireStoreServiceAccount() // <-- service account json file
+			}.Build()
+		));
+
+
 	}
 }

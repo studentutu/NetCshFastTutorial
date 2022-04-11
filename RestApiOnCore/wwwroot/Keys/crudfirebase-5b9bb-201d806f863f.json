@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "crudfirebase-5b9bb",
+  "private_key_id": "201d806f863f9efbc3aa3950973a4d45dfda121a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC6yVUI91AUXH54\n9/MP5iyGpIMk1Ko8wThxClWCKVL9GQ8VlhxL7LWvVDS95V0OYByv3tr1TOtyF70x\nWhwE/julE5qEM2Hk9aIG2pisPlfNgSMomL9624AkU4Er5NfaIHAXPmsYrbNi7yfK\nOj3WfMYKgRPJhp3/QDT3T6cUPvtLP0vy486DbY+N2ZK8UnhEWFUgPpjj6LB8I3Hi\nA5ZHLQa7Y8c6vZfNgw2+IIdMA/Uje/1O8AdeMovHKfcTWT5dNGR58gmSiz6kl49C\nLL3JwLcUdIXQL8ubaqhsg0YAPTp+a8eS79qvsgUiHXufHZGLpYYqs1uwEydCrZPn\nCNV0nclXAgMBAAECggEAEkF1BEdrqVNkij0toYGtG2TyN/c2QwuqRD4VOMxoj7ns\n9zHXLSjpYiv4ON3oeB9QeA3vcScl7qsMTJafUD7RPiNjqDhMNDA5UeZeiQMec/e2\ncHrRYb5/UGcxVxFqpidVqg5P/rb6mX8ail5vE2RzIXnkVBkXBLU8fmlnp1TQ6bv1\nZnqmes68o4ZY4VCw3q88CWCH5m34Y6guoXLc2Ym1gk2v6K1coNTV9/u0/ouPUI/g\nYNXQi9PYOe0KwSWNeAkg+aW/UNci6BDtuQU3G6l+VNl+Xpus1vmwLAxX9HSMr3B3\nm2vPanGA1QBgq72+sLm8j0fSYBbMlr7lmP0QR2rVCQKBgQDtpeHQf5vO/mwKTIMG\ntdMf299zyI6Ru5aKmYtL8DODturpabGtgl7JZMUpQnOezjrQ7z9G8i9tpOWZArIr\nZTNaQqbAFcr5CONwMMwAEI53FZeu2WCQuIztj0h7xVMDMRH951WYForRGghaSTX9\n+3E+rR+ZUdOU+c+rrJRfgtIAOQKBgQDJNfTz45TVMVWXs52GiEb/rdJWpbwP8HfG\nAFyjKYOSUwTtDatlGZ/F0CXCuEr/C2BJNJgrMybRaBUfk8aYaitrncSxJmN0dA0Q\nbAuYL/pVIeBsiUIoLPi93kSmUOBlADFJlr9Fozlaa2p3+Z3L14UkETMd9sBFDQFF\nqd5DLOH2DwKBgEK8ZqGKdFK4l9Z8jf8AaH113VZCZ+b86tWZMMjud0jxwR4zFDZJ\nehzMM6HWi2l5OIMb7IUb1b3QpLlHTIlrLfSW6wTeGdW9bUFAMsmB3MAMTEBJwxhg\n+xJrPkujqiAnU4odwKepDOqTiOzxyju8tJyJOWpw1B3t2Se4myIHNrnhAoGAfz82\nSD720tS+Uo/u4TOx4uQkj1OE2Xez5243J6CLarBB/0CT0f4ggtMd7kTqeNzS6bjv\nOvLAa9Is+alVAPKzvv0pdPbYEr+Ju4b41igRYmFoMnujcRDvxfOY6q1fG8DBas6A\n7CNLlBk2XeVom48SzjpqX1q7QW/2C/5fZ5As3pUCgYBi0Jk58Iayj5RKS4W9CdAf\nNT5Qc2ThpULlOzJTV3GYTegPGwil0c343oW3u1aRUqfgo7Xhae+ZrN6lpxgaGEEx\nvVkNKJ6JI01p9rHYyyjVybzeqUxwqq8UmuNHu/AXUPVMP8Uf3cq0ReGuY7u5o8am\n1l2Ta/VNQloulNoKtdnfrg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firestore-crud-for-studenutu@crudfirebase-5b9bb.iam.gserviceaccount.com",
+  "client_id": "110647467450242569947",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firestore-crud-for-studenutu%40crudfirebase-5b9bb.iam.gserviceaccount.com"
+}
