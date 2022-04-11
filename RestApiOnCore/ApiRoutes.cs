@@ -4,6 +4,11 @@ public class ApiRoutes
 {
 	public class WeatherApi
 	{
-		public const string RelativeUrl = "/WeatherForecast";
+		internal const string RelativeUrl = "weatherforecast";
+
+		public static string WeatherUrl
+		{
+			get { return "/" + RelativeUrl; }
+		}
 	}
 }

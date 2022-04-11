@@ -41,14 +41,14 @@ public class DictionaryDbRepository : IDbRepository
 		}
 	}
 
-	public Task<bool> PutWeather(string query, List<WeatherForecastDto> list)
+	public Task<bool> PutWeather(string query, IEnumerable<WeatherForecastDto> list)
 	{
 		EnsureExists(query);
 		_dictionary[query].AddRange(list);
 		return Task.FromResult(true);
 	}
 
-	public Task<List<WeatherForecastDto>> GetWeather(string query)
+	public Task<IEnumerable<WeatherForecastDto>> GetWeather(string query)
 	{
 		if (query.Equals("*"))
 		{
@@ -58,18 +58,18 @@ public class DictionaryDbRepository : IDbRepository
 				list.AddRange(keyAndValue.Value);
 			}
 
-			return Task.FromResult(list);
+			return Task.FromResult(list as IEnumerable<WeatherForecastDto>);
 		}
 
 		if (_dictionary.TryGetValue(query, out var listTemp))
 		{
-			return Task.FromResult(listTemp);
+			return Task.FromResult(listTemp as IEnumerable<WeatherForecastDto>);
 		}
 
-		return Task.FromResult(new List<WeatherForecastDto>());
+		return Task.FromResult(new List<WeatherForecastDto>() as IEnumerable<WeatherForecastDto>);
 	}
 
-	public Task<bool> UpdateWeather(string query, List<WeatherForecastDto> listToUpdate)
+	public Task<bool> UpdateWeather(string query, IEnumerable<WeatherForecastDto> listToUpdate)
 	{
 		EnsureExists(query);
 		var toDict = _dictionary[query].ToDictionary(x => x.Place);

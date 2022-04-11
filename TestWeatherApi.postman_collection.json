@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "New Request",
+			"name": "GetAllWeather",
 			"protocolProfileBehavior": {
 				"disabledSystemHeaders": {
 					"user-agent": true
@@ -20,14 +20,43 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:7060/WeatherForecast",
+					"raw": "https://localhost:7060/weatherforecast",
 					"protocol": "https",
 					"host": [
 						"localhost"
 					],
 					"port": "7060",
 					"path": [
-						"WeatherForecast"
+						"weatherforecast"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Forecast WithId",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"user-agent": true
+				},
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7060/weatherforecast/w",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7060",
+					"path": [
+						"weatherforecast",
+						"w"
 					]
 				}
 			},

@@ -5,7 +5,7 @@ using RestApiOnCore.Repository.Instrastucture;
 namespace RestApiOnCore.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route(ApiRoutes.WeatherApi.RelativeUrl)]
 public class WeatherForecastController : ControllerBase
 {
 	private readonly ILogger<WeatherForecastController> _logger;
@@ -18,11 +18,32 @@ public class WeatherForecastController : ControllerBase
 		_dbRepository = dbRepository;
 	}
 
-	[HttpGet(Name = "GetWeatherForecast")]
-	public async Task<IEnumerable<WeatherForecastDto>> Get()
+	// Get /WeatherForecast
+	[HttpGet]
+	public async Task<IActionResult> Get()
 	{
 		await Task.Delay(3000);
+		var result = await _dbRepository.GetWeather("*");
+		if (result.Any())
+		{
+			// See https://exceptionnotfound.net/asp-net-core-demystified-action-results/
+			return Ok(result);
+		}
 
-		return await _dbRepository.GetWeather("*");
+		return NotFound();
+	}
+
+	// Get /WeatherForecast/{id}
+	[HttpGet("{id}")]
+	public async Task<IActionResult> Get(string id)
+	{
+		await Task.Delay(500);
+		var result = await _dbRepository.GetWeather(id);
+		if (result.Any())
+		{
+			return Ok(result);
+		}
+
+		return NotFound();
 	}
 }

@@ -17,7 +17,7 @@ public class WeatherControllerTests : TestBase
 	[Test]
 	public async Task WeatherApi_ShouldReturn_GoodResult()
 	{
-		var awaitedResult = await HttpClient.GetAsync(ApiRoutes.WeatherApi.RelativeUrl);
+		var awaitedResult = await HttpClient.GetAsync(ApiRoutes.WeatherApi.WeatherUrl);
 		awaitedResult.IsSuccessStatusCode.Should().BeTrue();
 	}
 }
