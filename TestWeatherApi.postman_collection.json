@@ -61,6 +61,114 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Forecast WithId West",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"user-agent": true
+				},
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7060/weatherforecast/West",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7060",
+					"path": [
+						"weatherforecast",
+						"West"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create WithId West",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"user-agent": true,
+					"content-type": true
+				},
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"place\": \"West\",\r\n    \"date\": \"2022-04-14T14:04:02.3119627+03:00\",\r\n    \"temperatureC\": 18,\r\n    \"temperatureF\": 64,\r\n    \"summary\": \"Bracing\"\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:7060/weatherforecast",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7060",
+					"path": [
+						"weatherforecast"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete WithId West",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"user-agent": true
+				},
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"place\": \"West\",\r\n    \"date\": \"2022-04-14T14:04:02.3119627+03:00\",\r\n    \"temperatureC\": 18,\r\n    \"temperatureF\": 64,\r\n    \"summary\": \"Bracing\"\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:7060/weatherforecast/West",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7060",
+					"path": [
+						"weatherforecast",
+						"West"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
