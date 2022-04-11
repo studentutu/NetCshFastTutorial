@@ -9,6 +9,7 @@ namespace RestApiOnCore.Repository.Implementations;
 public class FirestoreDbContext
 {
 	private readonly FirestoreDb _fireStoreDb;
+	private CollectionReference _collectionReference;
 
 	private const string DbName = "root";
 	private const string Collection = "users";
@@ -16,6 +17,7 @@ public class FirestoreDbContext
 	public FirestoreDbContext(FirestoreDb fireStoreDb)
 	{
 		_fireStoreDb = fireStoreDb;
+		_collectionReference = _fireStoreDb.Collection(Collection);
 	}
 
 	public async Task AddOrUpdate<T>(T entity, CancellationToken ct) where T : class, IFirebaseEntity
