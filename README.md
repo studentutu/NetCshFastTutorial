@@ -21,4 +21,11 @@ Tutorial Divided into 2 parts :
     - learning patterns/tricks
     - working with Rest requests
     - Json and how to parse it
+
+
+## FireStore
+
+https://console.firebase.google.com/u/0/project/crudfirebase-5b9bb/firestore
+
+
  

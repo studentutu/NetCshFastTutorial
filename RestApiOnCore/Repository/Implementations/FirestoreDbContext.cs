@@ -10,6 +10,9 @@ public class FirestoreDbContext
 {
 	private readonly FirestoreDb _fireStoreDb;
 
+	private const string DbName = "root";
+	private const string Collection = "users";
+
 	public FirestoreDbContext(FirestoreDb fireStoreDb)
 	{
 		_fireStoreDb = fireStoreDb;

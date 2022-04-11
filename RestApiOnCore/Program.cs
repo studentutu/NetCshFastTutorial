@@ -14,7 +14,7 @@ builder.WebHost.UseWebRoot("wwwroot");
 
 
 // Add Services
-var customServices = new ServicesInstaller(builder.Services);
+var customServices = new ServicesInstaller(builder.Services, builder.Environment);
 customServices.AddServices();
 
 var app = builder.Build();

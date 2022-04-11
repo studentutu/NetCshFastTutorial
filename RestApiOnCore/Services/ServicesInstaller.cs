@@ -11,10 +11,14 @@ namespace RestApiOnCore.Services;
 public class ServicesInstaller
 {
 	private readonly IServiceCollection _serviceCollection;
+	private readonly IWebHostEnvironment _hostingEnvironment;
 
-	public ServicesInstaller(IServiceCollection serviceCollection)
+	public ServicesInstaller(
+		IServiceCollection serviceCollection,
+		IWebHostEnvironment hostingEnvironment)
 	{
 		_serviceCollection = serviceCollection;
+		_hostingEnvironment = hostingEnvironment;
 	}
 
 	public void AddServices()
@@ -25,16 +29,14 @@ public class ServicesInstaller
 		_serviceCollection.AddSingleton<IDateTimeService>(new DateTimeService());
 
 		_serviceCollection.AddSingleton<IDbRepository>(new DictionaryDbRepository());
-		
-		
+
+		FirebaseSettings.Initialize(_hostingEnvironment);
 		_serviceCollection.AddSingleton(_ => new FirestoreDbContext(
-			new FirestoreDbBuilder 
-			{ 
-				ProjectId = SetupEnvironments.FireStore_Project_Id, 
+			new FirestoreDbBuilder
+			{
+				ProjectId = SetupEnvironments.FireStore_Project_Id,
 				JsonCredentials = SetupEnvironments.GetGoogleFireStoreServiceAccount() // <-- service account json file
 			}.Build()
 		));
-
-
 	}
 }
