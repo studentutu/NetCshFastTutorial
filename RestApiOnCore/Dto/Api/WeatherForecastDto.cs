@@ -1,5 +1,6 @@
 namespace RestApiOnCore.Dto.Api;
 
+[Serializable]
 public class WeatherForecastDto
 {
 	public string Guid { get; set; }

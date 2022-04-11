@@ -28,15 +28,8 @@ public class ServicesInstaller
 
 		_serviceCollection.AddSingleton<IDateTimeService>(new DateTimeService());
 
-		_serviceCollection.AddSingleton<IDbRepository>(new DictionaryDbRepository());
+		_serviceCollection.AddFireStoreCustomSettings(_hostingEnvironment);
 
-		FirebaseSettings.Initialize(_hostingEnvironment);
-		_serviceCollection.AddSingleton<FirestoreDbContext>(_ => new FirestoreDbContext(
-			new FirestoreDbBuilder
-			{
-				ProjectId = SetupEnvironments.FireStore_Project_Id,
-				JsonCredentials = SetupEnvironments.GetGoogleFireStoreServiceAccount() // <-- service account json file
-			}.Build()
-		));
+		_serviceCollection.AddSingleton<IDbRepository, FireStoreWeatherDbRepository>();
 	}
 }

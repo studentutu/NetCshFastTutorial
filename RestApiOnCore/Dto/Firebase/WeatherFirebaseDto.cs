@@ -1,7 +1,10 @@
-﻿using RestApiOnCore.Dto.Api;
+﻿using Google.Cloud.Firestore;
+using RestApiOnCore.Dto.Api;
 
 namespace RestApiOnCore.Dto;
 
+[Serializable]
+[FirestoreData]
 public class WeatherFirebaseDto : IFirebaseEntity
 {
 	public string Id
@@ -9,8 +12,8 @@ public class WeatherFirebaseDto : IFirebaseEntity
 		get => _apiDto.Guid;
 		set => _apiDto.Guid = value;
 	}
-
-	private WeatherForecastDto _apiDto;
+	
+	public WeatherForecastDto _apiDto;
 
 	public WeatherFirebaseDto()
 	{

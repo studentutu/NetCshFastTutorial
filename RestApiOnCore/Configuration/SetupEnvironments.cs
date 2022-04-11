@@ -2,7 +2,7 @@
 
 public class SetupEnvironments
 {
-	public const string FireStore_Project_Id = "";
+	public const string FireStore_Project_Id = "crudfirebase-5b9bb";
 	public const string GOOGLE_FIRESTORE = "GOOGLE_APPLICATION_CREDENTIALS";
 
 	public static void SetGoogleFirestoreServiceAccount(string filePath)
@@ -13,5 +13,12 @@ public class SetupEnvironments
 	public static string GetGoogleFireStoreServiceAccount()
 	{
 		return Environment.GetEnvironmentVariable(GOOGLE_FIRESTORE);
+	}
+
+	public static string GetFireStoreServiceAsJson()
+	{
+		var filePath = GetGoogleFireStoreServiceAccount();
+		var result = File.ReadAllText(filePath);
+		return result;
 	}
 }

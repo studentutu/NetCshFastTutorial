@@ -1,5 +1,4 @@
-﻿using RestApiOnCore.Dto;
-using RestApiOnCore.Dto.Api;
+﻿using RestApiOnCore.Dto.Api;
 using RestApiOnCore.Repository.Instrastucture;
 
 namespace RestApiOnCore.Repository.Implementations;

@@ -30,31 +30,36 @@ public class FirestoreDbContext
 			_collection = collection;
 		}
 
-		public async Task AddOrUpdate<T>(T entity, CancellationToken ct) where T : class, IFirebaseEntity
+		public async Task<bool> AddOrUpdate<T>(T entity, CancellationToken ct) where T : class, IFirebaseEntity
 		{
 			var document = _collection.Document(entity.Id);
-			await document.SetAsync(entity, cancellationToken: ct);
+			var result = await document.SetAsync(entity, cancellationToken: ct, options: SetOptions.MergeAll);
+			return result != null;
 		}
 
-		public async Task<T> Get<T>(string id, CancellationToken ct)
+		public async Task<T> Get<T>(string id, CancellationToken ct) where T : class, IFirebaseEntity
 		{
 			var document = _collection.Document(id);
 			var snapshot = await document.GetSnapshotAsync(ct);
-			return snapshot.ConvertTo<T>();
+			if (snapshot.Exists)
+			{
+				return snapshot.ConvertTo<T>();
+			}
+
+			return null;
 		}
 
 		public async Task<bool> Delete<T>(string id)
 		{
 			var document = _collection.Document(id);
-			var result =  await document.DeleteAsync(Precondition.None);
+			var result = await document.DeleteAsync(Precondition.None);
 
 			return result != null && result.UpdateTime.ToDateTime() != default;
 		}
 
 		public async Task<IReadOnlyCollection<T>> GetAll<T>(CancellationToken ct) where T : IFirebaseEntity
 		{
-			var snapshot = await _collection.GetSnapshotAsync(ct);
-			return snapshot.Documents.Select(x => x.ConvertTo<T>()).ToList();
+			return await GetList<T>(_collection, ct);
 		}
 
 		public async Task<IReadOnlyCollection<T>> WhereEqualTo<T>(string fieldPath, object value, CancellationToken ct)

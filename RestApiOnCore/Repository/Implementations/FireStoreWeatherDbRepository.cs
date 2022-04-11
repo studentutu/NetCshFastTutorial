@@ -30,8 +30,19 @@ public class FireStoreWeatherDbRepository : IDbRepository
 
 	public async Task<IEnumerable<WeatherForecastDto>> GetWeather(string query)
 	{
-		var allDtos = await _firestore.GetAll<WeatherFirebaseDto>(CancellationToken.None);
-		return allDtos.Select(x => x.GetApiDto());
+		if (query.Equals("*"))
+		{
+			var allDtos = await _firestore.GetAll<WeatherFirebaseDto>(CancellationToken.None);
+			return allDtos.Select(x => x.GetApiDto());
+		}
+
+		var result = await _firestore.Get<WeatherFirebaseDto>(query, CancellationToken.None);
+		if (result == null)
+		{
+			return new WeatherForecastDto[0];
+		}
+
+		return new List<WeatherForecastDto>() {result.GetApiDto()};
 	}
 
 	public async Task<bool> UpdateWeather(string query, IEnumerable<WeatherForecastDto> list)
