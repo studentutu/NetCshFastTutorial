@@ -39,13 +39,16 @@ public static class FirebaseSettings
 	{
 		public object ToFirestore(WeatherFirebaseDto? value)
 		{
-			var dictionary = new Dictionary<string, string>();
+			var dictionary = new Dictionary<string, Object>();
 			if (value == null)
 			{
 				return dictionary;
 			}
 
-			dictionary.Add(nameof(value._apiDto), JsonConvert.SerializeObject(value._apiDto));
+			var nameOfField = nameof(WeatherFirebaseDto._apiDto);
+			var asDictionary = JsonConvert.DeserializeObject<Dictionary<string, Object>>(
+				JsonConvert.SerializeObject(value._apiDto));
+			dictionary.Add(nameOfField, asDictionary);
 			return dictionary;
 		}
 
@@ -57,9 +60,15 @@ public static class FirebaseSettings
 				return null;
 			}
 
-			var list = dictionary.Values.First();
-			var asString = list as string;
-			var deserialized = JsonConvert.DeserializeObject<WeatherForecastDto>(asString);
+			var nameOfField = nameof(WeatherFirebaseDto._apiDto);
+
+			var list = dictionary[nameOfField];
+			var asDict = list as Dictionary<string, object>;
+			var asDateButFrom = asDict[nameof(WeatherForecastDto.Date)];
+			var firebaseDeserializer = new DefaultNullableDatetimeConverter();
+			asDict[nameof(WeatherForecastDto.Date)] = firebaseDeserializer.FromFirestore(asDateButFrom);
+			var toJson = JsonConvert.SerializeObject(asDict);
+			var deserialized = JsonConvert.DeserializeObject<WeatherForecastDto>(toJson);
 			return new WeatherFirebaseDto(deserialized);
 		}
 	}
